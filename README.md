@@ -1,4 +1,6 @@
-Project description:
+## Sparkify data warehouse project
+
+## Project description:
 
 Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. 
 The analytics team is particularly interested in understanding what songs users are listening to.
@@ -12,8 +14,8 @@ This project consist in:
 
 - compare my results with their expected results
 
-Database design:
-Schema for Song Play Analysis
+### Database design:
+### Schema for Song Play Analysis
 Using the song and log datasets, we have created a star schema optimized for queries on song play analysis. This includes the following tables.
 
 - Fact Table  
@@ -34,11 +36,11 @@ time: timestamps of records in songplays broken down into specific units
 start_time, hour, day, week, month, year, weekday
 
 
-ETL Process:
+### ETL Process:
 
 The etl.py file develops the ETL processes for each of the tables and load the whole datasets.
 
-Process song_data:
+#### Process song_data:
 
 In the first part of the etl.py file, we perform ETL on the first dataset, song_data, and load record into song and artist dimensional tables.
 We proceed with  ETL on a single song file and load a single record into each table to start.
@@ -49,7 +51,7 @@ We proceed with  ETL on a single song file and load a single record into each ta
 - Insert artist record into artist table
 - Insert song record into song table
 
-Process log_data:
+#### Process log_data:
 
 In this second part, we perform ETL on the second dataset, log_data, to load record into time and users dimensional tables, as well as the songplays fact table.
 
@@ -63,7 +65,7 @@ We perform ETL on a single log file and load a single record into each table.
 - Insert songplay record into songplay table
 
 
-Process data:
+#### Process data:
 
 In this third part, 
 The process_data() function takes in argument the filepath and either the process_song_file or process_log_file function, 
@@ -78,7 +80,7 @@ and according to the arguments provided, ETL is performed on the whole dataset.
 The main() function runs the process_data() function for both datasets and close the connection.
 
 
-Project Repository files: This section describes what files are for which purpose in the project :
+### Project Repository files: This section describes what files are for which purpose in the project :
 
 - Song dataset data/song_data/:
 The first dataset  is a subset of real data from the Million Song Dataset. Each file is in JSON format and contains metadata about a song and the artist of that song. The files are partitioned by the first three letters of each song's track ID. 
@@ -89,7 +91,7 @@ In addition to the data files, the project workspace includes six files:
 
 - test.ipynb displays the first few rows of each table to let us check our database.
 - create_tables.py drops and creates your tables. You run this file to reset your tables before each time we run our ETL scripts.
-- etl.ipynb reads and processes a single file from song_data and log_data and loads the data into our tables. This notebook contains detailed instructions on the ETL process for each of the      tables.
+- etl.ipynb reads and processes a single file from song_data and log_data and loads the data into our tables. This notebook contains detailed instructions on the ETL process for each of the tables.
 - etl.py reads and processes files from song_data and log_data and loads them into your tables. You can fill this out based on our work in the ETL notebook.
 - sql_queries.py contains all the sql queries, and is imported into the last three files above.
    Create Tables
@@ -98,7 +100,7 @@ In addition to the data files, the project workspace includes six files:
 - README.md provides discussion on the project.
 
 
-How To Run the Project?
+### How To Run the Project?
 
 - Run create_tables.py to create our database and tables.
 - Develop ETL processes for each table. At the end of each table section, or at the end of the notebook, run test.ipynb to confirm that records were successfully inserted into each table.
